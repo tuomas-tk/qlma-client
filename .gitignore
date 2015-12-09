@@ -37,4 +37,7 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
+*.swp
 
+#Ignore the gulp build folder
+public
