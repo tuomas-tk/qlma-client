@@ -1,19 +1,18 @@
 var source = require('vinyl-source-stream');
 var gulp = require('gulp');
 var browserify = require('browserify');
-var less = require('gulp-less');
+var sass = require('gulp-sass');
 var path = require('path');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var gutil = require('gulp-util');
 
-gulp.task('less', function () {
-  return gulp.src('./source/less/**/*.less')
-    .pipe(less({
-      paths: [ path.join(__dirname, 'less', 'includes') ]
-    }))
-    .pipe(gulp.dest('./public/css'))
-    .pipe(reload({stream:true}));
+// Compile sass into CSS & auto-inject into browsers
+gulp.task('sass', function() {
+    return gulp.src("./source/scss/*.scss")
+        .pipe(sass())
+        .pipe(gulp.dest("./public/css"))
+        .pipe(browserSync.stream());
 });
 
 gulp.task('images',function(){
@@ -48,10 +47,10 @@ gulp.task('build-js', function() {
 
 
 // run 'scripts' task first, then watch for future changes
-gulp.task('default', ['copyhtml', 'less', 'images', 'build-js', 'browser-sync'], function() {
-  gulp.watch('source/less/**/*', ['less']);
+gulp.task('default', ['copyhtml', 'sass', 'images', 'build-js', 'browser-sync'], function() {
+  gulp.watch('source/scss/**/*', ['sass']);
   gulp.watch('source/*.html', ['copyhtml']);
 });
 
-gulp.task('build', ['copyhtml', 'less', 'images','build-js'], function() {
+gulp.task('build', ['copyhtml', 'sass', 'images','build-js'], function() {
 });
