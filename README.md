@@ -1,11 +1,15 @@
 #  qlma-client
 
-## Development
+## Prerequisities
 1. npm install
-2. gulp
-3. Navigate to localhost:3000
-4. Make any change to .html or .less files
+2. npm install gulp --save-dev
+3. npm install gulp-util --save-dev
 
-## Create the app
+## Development
+1. gulp
+2. Make any change to .html or .less files
+3. Watch the browser reloading with your changes
+
+## Build the app
 1. gulp build
 
