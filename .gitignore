@@ -41,3 +41,7 @@ node_modules
 
 #Ignore the gulp build folder
 public
+
+#Ignore sublime project files
+*.sublime-project
+*.sublime-workspace
