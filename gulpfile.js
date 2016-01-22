@@ -19,6 +19,14 @@ gulp.task('images',function(){
  gulp.src('./source/img/**').pipe(gulp.dest('./public/img'))
 });
 
+gulp.task('copy-js',function(){
+ gulp.src('./source/js/**').pipe(gulp.dest('./public/js'))
+});
+
+gulp.task('copy-css',function(){
+ gulp.src('./source/scss/*.css').pipe(gulp.dest('./public/css'))
+});
+
 gulp.task('browser-sync', function() {
     browserSync({
         server : "./public"
@@ -46,11 +54,14 @@ gulp.task('build-js', function() {
 });
 
 
+
+
 // run 'scripts' task first, then watch for future changes
-gulp.task('default', ['copyhtml', 'sass', 'images', 'build-js', 'browser-sync'], function() {
+gulp.task('default', ['copyhtml', 'sass', 'images', 'copy-js', 'copy-css', 'browser-sync'], function() {
   gulp.watch('source/scss/**/*', ['sass']);
   gulp.watch('source/*.html', ['copyhtml']);
+  gulp.watch('source/js/**', ['copy-js']);
 });
 
-gulp.task('build', ['copyhtml', 'sass', 'images','build-js'], function() {
+gulp.task('build', ['copyhtml', 'sass', 'images', 'copy-js', 'copy-css'], function() {
 });
