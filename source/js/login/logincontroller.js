@@ -33,10 +33,7 @@
 
     var myApp = angular.module('app');
     myApp
-    .constant("API", {
-        "URL": "http://localhost:3000", 
-    })
-    .controller("LoginController", LoginController);
+        .controller("LoginController", LoginController);
     LoginController.$inject = ['$location', '$http', '$window', 'API', 'qlmaService'];
 
 })();

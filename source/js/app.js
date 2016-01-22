@@ -18,6 +18,9 @@
                 set: set,
                 get: get
             }
+        })
+        .constant("API", {
+            "URL": "http://localhost:3000", 
         });
 
     config.$inject = ['$routeProvider', '$locationProvider'];
