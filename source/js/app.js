@@ -30,17 +30,24 @@
            
             .when('/', {
                 controller: 'LoginController',
-                templateUrl: 'js/login/login.view.html',
+                templateUrl: 'views/login.view.html',
                 controllerAs: 'login'
+            })
+
+            .when('/messaging', {
+                controller: 'MessagesController',
+                templateUrl: 'views/messages.view.html',
+                controllerAs: 'messages'
             })
 
             .when('/frontpage', {
                 controller: 'FrontPageController',
-                templateUrl: 'js/frontpage/frontpage.view.html',
+                templateUrl: 'views/frontpage.view.html',
                 controllerAs: 'frontpage'
             })
 
             .otherwise({ redirectTo: '/' });
+            $locationProvider.html5Mode(true);
     }
 
     run.$inject = ['$rootScope', '$location', '$window', '$http', 'qlmaService'];

@@ -19,12 +19,20 @@ gulp.task('images',function(){
  gulp.src('./source/img/**').pipe(gulp.dest('./public/img'))
 });
 
+gulp.task('fonts',function(){
+ gulp.src('./source/fonts/*').pipe(gulp.dest('./public/fonts'))
+});
+
 gulp.task('copy-js',function(){
- gulp.src('./source/js/**').pipe(gulp.dest('./public/js'))
+ gulp.src('./source/js/**/*').pipe(gulp.dest('./public/js'))
 });
 
 gulp.task('copy-css',function(){
  gulp.src('./source/scss/*.css').pipe(gulp.dest('./public/css'))
+});
+
+gulp.task('copy-views',function(){
+ gulp.src('./source/views/*.html').pipe(gulp.dest('./public/views'))
 });
 
 gulp.task('browser-sync', function() {
@@ -36,7 +44,6 @@ gulp.task('browser-sync', function() {
 gulp.task('copyhtml', function() {
   gulp.src('source/*.html').pipe(gulp.dest('public'))
   .pipe(reload({stream:true}));
-
 });
 
 gulp.task('build-js', function() {  
@@ -57,11 +64,11 @@ gulp.task('build-js', function() {
 
 
 // run 'scripts' task first, then watch for future changes
-gulp.task('default', ['copyhtml', 'sass', 'images', 'copy-js', 'copy-css', 'browser-sync'], function() {
+gulp.task('default', ['copyhtml', 'sass', 'images', 'copy-js', 'copy-css', 'copy-views', 'fonts', 'browser-sync'], function() {
   gulp.watch('source/scss/**/*', ['sass']);
   gulp.watch('source/*.html', ['copyhtml']);
   gulp.watch('source/js/**', ['copy-js']);
 });
 
-gulp.task('build', ['copyhtml', 'sass', 'images', 'copy-js', 'copy-css'], function() {
+gulp.task('build', ['copyhtml', 'sass', 'images', 'copy-js', 'copy-css', 'copy-views', 'fonts'], function() {
 });

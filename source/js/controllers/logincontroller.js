@@ -18,13 +18,6 @@
             $http.post(API.URL + '/login', credentials)
                 .success(function (data, status, headers, config) {
                     $window.sessionStorage.token = data.token;
-                    var user = {
-                        firstname: "not impl",
-                        lastname: "yet"
-                    }
-                    qlmaService.set(
-                        user                       
-                    );
                     $location.path("/frontpage")
 
                 })
