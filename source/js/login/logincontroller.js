@@ -2,9 +2,14 @@
     'use strict';
      
 
-    function LoginController($location, $http, $window, API, qlmaService) {
+    function LoginController($rootScope, $location, $http, $window, API, qlmaService) {
         var login = this;
-    
+        
+        $rootScope.$on('doLogout', function(event, args) {
+            login.doLogout();
+        });
+        
+
         login.doLogin = function () {
             var username = login.username;
             var password = login.password;
@@ -14,8 +19,8 @@
                 .success(function (data, status, headers, config) {
                     $window.sessionStorage.token = data.token;
                     var user = {
-                        firstname: "Seppo",
-                        lastname: "Sepikka"
+                        firstname: "not impl",
+                        lastname: "yet"
                     }
                     qlmaService.set(
                         user                       
@@ -29,11 +34,17 @@
                 });
 
         };
+
+        login.doLogout = function () {
+            delete $window.sessionStorage.token;
+            $location.path("/login")
+        }
     }
 
     var myApp = angular.module('app');
     myApp
         .controller("LoginController", LoginController);
-    LoginController.$inject = ['$location', '$http', '$window', 'API', 'qlmaService'];
+
+    LoginController.$inject = ['$rootScope', '$location', '$http', '$window', 'API', 'qlmaService'];
 
 })();

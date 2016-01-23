@@ -43,12 +43,12 @@
             .otherwise({ redirectTo: '/' });
     }
 
-    run.$inject = ['$rootScope', '$location', '$cookieStore', '$http', 'qlmaService'];
-    function run($rootScope, $location, $cookieStore, $http, qlmaService) {
+    run.$inject = ['$rootScope', '$location', '$window', '$http', 'qlmaService'];
+    function run($rootScope, $location, $window, $http, qlmaService) {
         console.log("Run");
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
-            console.log("locationChangeStart triggered");
+
         });       
     }
 
