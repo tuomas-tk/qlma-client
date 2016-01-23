@@ -17,6 +17,7 @@
                 'Authorization': 'Token ' + $window.sessionStorage.token,
                 }
             };
+
             var subject = messages.subject;
             var recipient = messages.recipient;
             var messagebody = messages.message;
@@ -25,9 +26,6 @@
             $http.post(API.URL + '/messages', data, config)
                 .success(function (data, status, headers, config) {
                     $rootScope.reply = "Viesti lähetetty!";
-                    delete $rootScope.subject;
-                    delete $rootScope.recipient;
-                    delete $rootScope.messagebody;
                 })
                 .error(function (data, status, headers, config) {
                     $rootScope.reply = "Viesti ei lähetetty, yritäthän uudestaan!";

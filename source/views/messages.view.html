@@ -28,14 +28,14 @@
                 <form name="createMessage" role="form">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Viestin otsikko:</label>
-                        <input ng-model="messages.subject" type="email" class="form-control" id="exampleInputEmail1" placeholder="Kirjoita viestille haluamasi otsikko">
+                        <input id="subject" name="subject" ng-model="messages.subject" class="form-control" id="exampleInputEmail1" placeholder="Kirjoita viestille haluamasi otsikko">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Viestin vastaanottaja:</label>
-                        <input ng-model="messages.recipient" class="form-control" placeholder="Vastaanottaja">
+                        <input id="recipient" ng-model="messages.recipient" class="form-control" placeholder="Vastaanottaja">
                     </div>
                     <label for="exampleInputFile">Viesti:</label>
-                    <textarea ng-model="messages.message" class="form-control" rows="10"></textarea>
+                    <textarea id="message" ng-model="messages.message" class="form-control" rows="10"></textarea>
                     <br><br> 
             </div>
             <div class="col-lg-4 sidebar">
