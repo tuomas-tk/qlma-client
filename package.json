@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Qlma Client",
   "main": "gulpfile.js",
+  "private": true,
   "dependencies": {
     "browser-sync": "^2.10.0",
     "browserify": "^12.0.1",
