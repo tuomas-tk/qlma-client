@@ -7,7 +7,7 @@
 
     function ApiFactory($http, $window, API, $q) {
         var config = { headers:  {
-            'Authorization': 'Token ' + $window.sessionStorage.token,
+            	'Authorization': 'Token ' + $window.sessionStorage.token,
             }
         };
 
@@ -17,7 +17,7 @@
                     return data;                
                })
                 .error(function (data, status, headers, config) {
-                    return data                   
+                    return data;
                 });          
         }
 
@@ -27,25 +27,11 @@
                     return data;                
                })
                 .error(function (data, status, headers, config) {
-                    return data                   
-            }); 
-        }
-
-        this.createMessage = function(data) {
-            $http.post(API.URL + '/messages', data, config)
-                .success(function (data, status, headers, config) {
-                    console.log(data)
-                    console.log("success");
-                })
-                .error(function (data, status, headers, config) {
-                    console.log(data)
-                    console.log("failed");
-                });
+                    return data;              
+            	}); 
         }
 
         return this;
     };
-
-
 
 })();
