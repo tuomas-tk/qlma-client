@@ -20,7 +20,7 @@
             }
         })
         .constant("API", {
-            "URL": "http://demo.qlma.fi",
+            "URL": "https://demo.qlma.fi",
         });
 
     config.$inject = ['$routeProvider', '$locationProvider'];
