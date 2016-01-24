@@ -60,10 +60,6 @@ gulp.task('build-js', function() {
         .pipe(gulp.dest('./public/js/'));
 });
 
-gulp.task('copy-to-api',function(){
-    gulp.src('./public/**/*').pipe(gulp.dest('../../resources/public/'))
-});
-
 // run 'scripts' task first, then watch for future changes
 gulp.task('default', ['copyhtml', 'sass', 'images', 'copy-js', 'copy-css', 'copy-views', 'fonts', 'browser-sync'], function() {
   gulp.watch('source/scss/**/*', ['sass']);
@@ -71,7 +67,7 @@ gulp.task('default', ['copyhtml', 'sass', 'images', 'copy-js', 'copy-css', 'copy
   gulp.watch('source/js/**', ['copy-js']);
 });
 
-gulp.task('build-prod', ['copyhtml', 'sass', 'images', 'copy-js', 'copy-css', 'copy-views', 'fonts', 'copy-to-api'], function() {
+gulp.task('build-prod', ['copyhtml', 'sass', 'images', 'copy-js', 'copy-css', 'copy-views', 'fonts'], function() {
 });
 
 gulp.task('build', ['copyhtml', 'sass', 'images', 'copy-js', 'copy-css', 'copy-views', 'fonts'], function() {
