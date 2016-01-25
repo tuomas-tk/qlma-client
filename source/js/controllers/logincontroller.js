@@ -1,14 +1,15 @@
 (function () {
     'use strict';
-     
+
 
     function LoginController($rootScope, $location, $http, $window, API, qlmaService) {
         var login = this;
-        
+        var loginError = "";
+
         $rootScope.$on('doLogout', function(event, args) {
             login.doLogout();
         });
-        
+
 
         login.doLogin = function () {
             var username = login.username;
@@ -22,6 +23,8 @@
 
                 })
                 .error(function (data, status, headers, config) {
+                    $rootScope.loginError = "Kirjautuminen epäonnistui";
+
                     // Erase the token if the user fails to log in
                     delete $window.sessionStorage.token;
                 });
