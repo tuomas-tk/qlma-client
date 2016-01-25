@@ -16,6 +16,14 @@
 }
 
 body {
+    #login-error {
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
     #login-container {
         max-width: 450px;
         margin-left: auto;
@@ -24,7 +32,7 @@ body {
         padding-right: 5%;
         padding-top: 5em;
         font-family: Arial,sans-serif;
-    
+
         #logo {
             float: right;
             padding-bottom: 1em;
@@ -70,7 +78,7 @@ body {
                 cursor: pointer;
 
                 &:hover {
-                     background-color: $color-button-green-hover;     
+                     background-color: $color-button-green-hover;
                 }
             }
 
@@ -91,12 +99,12 @@ body {
             padding: 8px 3em 8px 3em;
             background-color: #51286e;
             color: #FFFFFF;
-        
+
             span {
                 font-size: 1em;
             }
         }
-        
+
 
         #change-school {
             padding-left: 3em;
@@ -113,8 +121,7 @@ body {
         #disqus_thread {
             margin-top: 50px;
         }
+
+
     }
 }
-
-
-
