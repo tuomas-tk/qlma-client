@@ -34,9 +34,9 @@
 	                    
 	                    <!-- List for small screens -->
 	                    <a ng-repeat="message in messages" href="#" class="message-row visible-xs">
-							<div>29.07.2015</div>
-							<div> <span class="message-caption">Luokanvalvojantunnit peruttu</span> <span class="message-right">ALERT</span> </div>
-							<div> <span>Liisa Mallinen</span> <span class="message-right">-</span> </div>
+							<div>{{ message.create_time }}</div>
+							<div> <span class="message-caption">{{ message.message }}</span> <span class="message-right">-</span> </div>
+							<div> <span>{{ message.from_user_id }}</span> <span class="message-right">-</span> </div>
 	                    </a>
 	                                                      
 	                    
