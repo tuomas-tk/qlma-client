@@ -41,7 +41,8 @@
         frontpage.getDate = function() {
             console.log("Get date");
             var currentDate = new Date();
-            date =  currentDate.getDate() + "." + currentDate.getMonth() + 1 + "." + currentDate.getFullYear();
+	    var days = ['sunnuntai','maanantai','tiistai','keskiviikko','torstai','perjantai','lauantai']
+            date = days[currentDate.getDay()] + " " + currentDate.getDate() + "." + currentDate.getMonth() + 1 + "." + currentDate.getFullYear();
 
             $rootScope.date = date;
         }
