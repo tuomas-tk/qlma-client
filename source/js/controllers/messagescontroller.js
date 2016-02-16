@@ -21,7 +21,7 @@
             var subject = messages.subject;
             var recipient = messages.recipient;
             var messagebody = messages.message;
-            var data = { "to": parseInt(recipient, 10), "message": messagebody, "parent_id": 1};
+            var data = { "to": parseInt(recipient, 10), "message": messagebody, "parent_id": null};
             
             $http.post(API.URL + '/messages', data, config)
                 .success(function (data, status, headers, config) {
