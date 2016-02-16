@@ -15,7 +15,7 @@
             return $http.get(API.URL + '/messages', config)
                 .success(function (data, status, headers, config) {
                     return data;                
-               })
+                })
                 .error(function (data, status, headers, config) {
                     return data;
                 });          
@@ -25,10 +25,30 @@
             return $http.get(API.URL + '/profile', config)
                 .success(function (data, status, headers, config) {
                     return data;                
-               })
+                })
                 .error(function (data, status, headers, config) {
                     return data;              
-            	}); 
+                });
+        }
+
+        this.getMessage = function(id) {
+            return $http.get(API.URL + '/messages/' + id, config)
+                .success(function (data, status, headers, config) {
+                    return data;
+                })
+                .error(function (data, status, headers, config) {
+                    return data;
+                });
+        }
+
+        this.getReplies = function(id) {
+            return $http.get(API.URL + '/messages/' + id + '/replies', config)
+                .success(function (data, status, headers, config) {
+                    return data;
+                })
+                .error(function (data, status, headers, config) {
+                    return data;
+                });
         }
 
         return this;
