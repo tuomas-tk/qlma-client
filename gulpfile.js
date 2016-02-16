@@ -62,8 +62,9 @@ gulp.task('build-js', function() {
 
 // run 'scripts' task first, then watch for future changes
 gulp.task('default', ['copyhtml', 'sass', 'images', 'copy-js', 'copy-css', 'copy-views', 'fonts', 'browser-sync'], function() {
-  gulp.watch('source/scss/**/*', ['sass']);
+  gulp.watch('source/scss/**/*', ['sass', 'copy-css']);
   gulp.watch('source/*.html', ['copyhtml']);
+  gulp.watch('source/views/*.html', ['copy-views']);
   gulp.watch('source/js/**', ['copy-js']);
 });
 
