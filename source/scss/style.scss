@@ -169,8 +169,18 @@ p {
 
 
 
+.qlma-table-hover tr {
+    cursor: pointer;
+}
+
+.qlma-table-hover>tbody>tr:hover {
+    background-color: #20bba6;
+    color: #FFFFFF;
+}
 
 
+
+/* Styles for mobile version of message table */
 .message-row {
 	display: block;
 	color: inherit;
@@ -183,7 +193,6 @@ p {
 	text-decoration: none;
 	background-color: #F0F0F0;
 }
-
 
 .message-caption {
 	font-size: 1.2em;

@@ -8,34 +8,40 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="submenu">
-                    <h2><i class="fa fa-file-text"></i></h2>
-                    <a href="messages.html">SAAPUNEET</a>
-                    <span></span>
+                    <a href="/messaging">
+                        <h2><i class="fa fa-file-text"></i></h2>
+                        SAAPUNEET
+                    </a>
                 </div>
                 <div class="submenu selected">
-                    <h2><i class="fa fa-file-o"></i></h2>
-                    <a href="createmessage.html">KIRJOITA</a>
+                    <a href="/messaging/create">
+                        <h2><i class="fa fa-file-o"></i></h2>
+                        KIRJOITA
+                    </a>
                 </div>
                 <div class="submenu">
-                    <h2><i class="fa fa-files-o"></i></h2>
-                    <a href="">LÄHETETYT</a>
+                    <a href="">
+                        <h2><i class="fa fa-files-o"></i></h2>
+                        LÄHETETYT
+                    </a>
                 </div>
             </div>
             <div class="clearfix"></div>
+            
             <div class="col-lg-8">
                 <h1>Kirjoita uusi viesti</h1>
                 <br><br>{{ reply }}
                 <form name="createMessage" role="form">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Viestin otsikko:</label>
-                        <input id="subject" name="subject" ng-model="messages.subject" class="form-control" id="exampleInputEmail1" placeholder="Kirjoita viestille haluamasi otsikko">
+                        <input id="subject" name="subject" ng-model="messageCreate.subject" class="form-control" id="exampleInputEmail1" placeholder="Kirjoita viestille haluamasi otsikko">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Viestin vastaanottaja:</label>
-                        <input id="recipient" ng-model="messages.recipient" class="form-control" placeholder="Vastaanottaja">
+                        <input id="recipient" ng-model="messageCreate.recipient" class="form-control" placeholder="Vastaanottaja">
                     </div>
                     <label for="exampleInputFile">Viesti:</label>
-                    <textarea id="message" ng-model="messages.message" class="form-control" rows="10"></textarea>
+                    <textarea id="message" ng-model="messageCreate.message" class="form-control" rows="10"></textarea>
                     <br><br> 
             </div>
             <div class="col-lg-4 sidebar">
@@ -58,7 +64,7 @@
             <p class="help-block">Tiedoston maksimikoko on 3Mt.</p>
             </div>
             -->
-            <button type="submit" ng-click="messages.createMessage()" class="btn btn-primary">Lähetä viesti nyt</button>
+            <button type="submit" ng-click="messageCreate.createMessage()" class="btn btn-primary">Lähetä viesti nyt</button>
             <!-- <button type="button" class="btn btn-default">Ajasta lähetys</button> -->
             </form>
             </div>

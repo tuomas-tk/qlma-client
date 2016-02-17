@@ -35,10 +35,24 @@
             })
 
             .when('/messaging', {
-                controller: 'MessagesController',
-                templateUrl: 'views/messages.view.html',
-                controllerAs: 'messages'
+                controller: 'MessageListController',
+                templateUrl: 'views/message_list.view.html',
+                controllerAs: 'messageList'
             })
+
+            .when('/messaging/create', {
+                controller: 'MessageCreateController',
+                templateUrl: 'views/message_create.view.html',
+                controllerAs: 'messageCreate'
+            })
+
+            .when('/messaging/:id', {
+                controller: 'MessageShowController',
+                templateUrl: 'views/message_show.view.html',
+                controllerAs: 'messageShow'
+            })
+
+
 
             .when('/frontpage', {
                 controller: 'FrontPageController',

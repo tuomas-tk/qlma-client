@@ -3,24 +3,24 @@
 
     var myApp = angular.module('app');
     myApp
-        .controller('MessagesController', MessagesController);
+        .controller('MessageCreateController', MessageCreateController);
 
-    MessagesController.$inject = ['$rootScope', '$location', '$http', 'API', '$window', 'ApiFactory'];
-    function MessagesController($rootScope, $location, $http, API, $window, apiFactory) {
-        var messages = this;
-        console.log("Init MessagesController");
+    MessageCreateController.$inject = ['$rootScope', '$location', '$http', 'API', '$window', 'ApiFactory'];
+    function MessageCreateController($rootScope, $location, $http, API, $window, apiFactory) {
+        var messageCreate = this;
+        console.log("Init MessageCreateController");
 
         var reply = "";
 
-        messages.createMessage = function() {
+        messageCreate.createMessage = function() {
             var config = { headers:  {
                 'Authorization': 'Token ' + $window.sessionStorage.token,
                 }
             };
 
-            var subject = messages.subject;
-            var recipient = messages.recipient;
-            var messagebody = messages.message;
+            var subject = messageCreate.subject;
+            var recipient = messageCreate.recipient;
+            var messagebody = messageCreate.message;
             var data = { "to": parseInt(recipient, 10), "message": messagebody, "parent_id": null};
             
             $http.post(API.URL + '/messages', data, config)
