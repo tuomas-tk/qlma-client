@@ -15,20 +15,24 @@
 	                    <div class="panel-heading">Uusimmat viestit</div>
 	                    <!-- Table -->
 	                    <table  class="table table-striped qlma-table-hover hidden-xs">
-	                        <tr>
-		                        <th> PVM </th> 
-		                        <th> AIHE </th> 
-		                        <th> LÄHETTÄJÄ </th>
-		                        <th> KUITTAUS </th>
-		                        <th> LIITE FAV </th> 
-	                        </tr>
-	                        <tr ng-repeat="message in messages">
-	                        	<td> {{ message.create_time }} </td>
-	                        	<td> {{ message.message }} </td>
-	                        	<td> {{ message.from_user_id }} </td>
-	                        	<td> </td>
-	                        	<td> </td>
-	                        </tr>
+	                        <thead>
+                                <tr>
+		                            <th> PVM </th> 
+    		                        <th> AIHE </th> 
+    		                        <th> LÄHETTÄJÄ </th>
+    		                        <th> KUITTAUS </th>
+    		                        <th> LIITE FAV </th> 
+    	                        </tr>
+                            </thead>
+	                        <tbody>
+                                <tr ng-repeat="message in messages" ng-click="frontpage.gotoMessage(message)">
+	                        	    <td> {{ message.create_time }} </td>
+    	                        	<td> {{ message.message }} </td>
+    	                        	<td> {{ message.from_user_id }} </td>
+    	                        	<td> </td>
+    	                        	<td> </td>
+    	                        </tr>
+                            </tbody>
 	                        
 	                    </table>
 	                    

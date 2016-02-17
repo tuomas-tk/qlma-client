@@ -47,6 +47,11 @@
             $rootScope.date = date;
         }
 
+        frontpage.gotoMessage = function(message) {
+            $location.path('/messaging/' + message.id);
+        };
+
+
         frontpage.loadMessages();
         frontpage.getProfile();
         frontpage.getDate();
